@@ -52,7 +52,3 @@ function checkPermutation(str1, str2){
 
 console.log(checkPermutation("ttttt", "ttatt"));
 
-
-
-
-// https://algorithms.tutorialhorizon.com/find-whether-two-strings-are-permutation-of-each-other/
