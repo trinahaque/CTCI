@@ -2,6 +2,21 @@
 // temporary stack, but you may not copy the elements into any other data structure. The stack supports the 
 // following operations: push, pop, peek, and isEmpty
 
+function sortStack(stack1){
+    var stack2 = new Stack();
+    while (!stack1.isEmpty){
+        var tmp = stack1.pop();
+        while (!stack2.isEmpty() && tmp < stack2.peek()){
+            stack1.push(stack2.pop());
+        }
+        stack2.push(tmp);
+    }
+    // console.log("stack2 length", stack2.length);
+    return stack2;
+}
+
+
+
 // creating a stack class
 function Stack(){
     this.stack = [];
@@ -35,3 +50,7 @@ Stack.prototype.peek = function(){
 Stack.prototype.isEmpty = function(){
     return this.stack.length == 0;
 }
+
+var stack1 = new Stack();
+stack1.push(7).push(2).push(8).push(3).push(5);
+console.log(sortStack(stack1));
