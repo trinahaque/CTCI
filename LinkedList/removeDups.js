@@ -39,8 +39,34 @@ SLNode.prototype.printRecursion = function(){
       return this.next.printRecursion();
     }
 }
+
+SLL.prototype.removeDups = function(){
+    if (!this.head){
+        return null;
+    }
+    return this.head.removeDups();
+}
+
+SLNode.prototype.removeDups = function(){
+    var current = this;
+    
+    var val = current.val;
+    // this does one iteration and one check for val
+    while (current.next){
+        // console.log("current in inner loop is ", current.val);
+        if (current.next.val == val){
+            current.next = current.next.next;
+        }
+        else{
+            current = current.next;
+        }
+    }
+}
   
 
 var sll = new SLL();
 sll.add(4).add(4).add(3).add(2).add(3).add(4);
+sll.printRecursion();
+console.log("after");
+sll.removeDups();
 sll.printRecursion();
