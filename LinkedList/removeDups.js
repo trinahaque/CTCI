@@ -47,7 +47,7 @@ SLL.prototype.removeDups = function(){
     return this.head.removeDups();
 }
 
-SLNode.prototype.removeDups = function(){
+SLNode.prototype.removeDupsOne = function(){
     var current = this;
     
     var val = current.val;
@@ -62,11 +62,22 @@ SLNode.prototype.removeDups = function(){
         }
     }
 }
+
+SLNode.prototype.removeDups = function(){
+    var current = this;
+    while (current){
+        current.removeDupsOne();
+        current = current.next;
+    }
+}
   
 
 var sll = new SLL();
-sll.add(4).add(4).add(3).add(2).add(3).add(4);
+sll.add(4).add(4).add(3).add(2).add(3).add(4).add(1).add(2).add(1);
 sll.printRecursion();
 console.log("after");
 sll.removeDups();
 sll.printRecursion();
+
+// 0 n^2 solution. Two while loops
+// 0(1) space
