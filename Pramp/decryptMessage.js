@@ -35,4 +35,27 @@ function encrypt(word){
     return result;
 }
 
-console.log("Encrypted message is ", encrypt("crime"));
+// console.log("Encrypted message is ", encrypt("crime"));
+
+function decrypt(word){
+    var result = "";
+    var prevVal = 1;
+
+    for (var i = 0; i < word.length; i++){
+        ascii_val = word[i].charCodeAt(0);
+        // console.log("ascii_val", ascii_val);
+        val = ascii_val - prevVal;
+        // console.log("val is ascii ", val);
+        while (val < "a".charCodeAt(0)){
+            val += 26;
+        }
+        console.log("val is ", val);
+        result += String.fromCharCode(val);
+        // you do want to know what the value is after adding the range
+        prevVal += val;
+        console.log("prev_val is ", prevVal);
+    }
+    return result;
+}
+
+console.log(decrypt("dnotq"));
