@@ -64,8 +64,30 @@ BSTNode.prototype.lowestCommonAncestor = function(node1, node2){
       }
 }
 
+// in order traversal
+BST.prototype.inOrder = function(){
+  if (!this.root){
+    return null;
+  }
+  return this.root.inOrder();
+}
+
+BSTNode.prototype.inOrder = function(){
+  if (!this){
+    return;
+  }
+  if (this.left){
+    this.left.inOrder();
+  }
+  console.log(this.val);
+  if (this.right){
+    this.right.inOrder();
+  }
+}
+
 bst = new BST();
 bst.add(10).add(30).add(-10).add(8).add(6).add(9);
 var node1 = new BSTNode(6);
 var node2 = new BSTNode(9);
-console.log(bst.lowestCommonAncestor(node1, node2));
+// console.log(bst.lowestCommonAncestor(node1, node2));
+console.log(bst.inOrder());
