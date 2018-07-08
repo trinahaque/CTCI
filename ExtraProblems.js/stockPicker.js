@@ -18,22 +18,25 @@ function stockPicker(arr){
     return result;
 }
 
-console.log(stockPicker([1,2,0,4,6,3,7,5]));
+// console.log(stockPicker([1,2,0,4,6,3,7,5]));
 
+// Handling negative value?
 // 0n time complexity
 function stockPickerOptimized(arr){
     var min = 0;
     var max = 0;
     var result = [];
     for (var i = 1; i < arr.length; i++){
-        if (arr[i] > arr[max]){
+        if (arr[i] > arr[max] && arr[i] >= 0){
             max = i;
         }
-        else if (arr[i] < arr[min]){
+        else if (arr[i] < arr[min] && arr[i] >= 0){
             min = i;
         }
     }
     result = [min, max];
     return result;
 }
-console.log(stockPickerOptimized([1,2,0,4,6,3,7,5]));
+// console.log(stockPickerOptimized([1,2,0,4,6,3,7,5]));
+console.log(stockPicker([1,2,0,4,6,3,7,5,-1]));
+console.log(stockPickerOptimized([1,2,0,4,6,3,7,5,-1]));
