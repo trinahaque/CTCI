@@ -20,7 +20,7 @@ function stockPicker(arr){
 
 console.log(stockPicker([1,2,0,4,6,3,7,5]));
 
-
+// 0n time complexity
 function stockPickerOptimized(arr){
     var min = 0;
     var max = 0;
