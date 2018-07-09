@@ -33,3 +33,42 @@ function numOfPathsToDest(n){
 }
 
 console.log(numOfPathsToDest(5));
+
+
+// Number of path using dynamic programming and memoization
+
+function numOfPathParent(n){
+    var memo = [];
+    for (var k = 0; k < n; k++){
+        // creating a 2d array
+        // each array inside resultArray will be a new array with n - 1 length starting from 0
+        memo.push(new Array(n-1));
+    }
+
+    for (var i = 1; i < n; i ++){
+        for (var j = 1; j < n; j++){
+            memo[i][j] = -1;
+    }
+    return numOfPathsToMemo(n-1, n-1, memo);
+}
+
+function numOfPathsToMemo(m, n, memo){
+    if (m < 0 || n < 0){
+        return 0;
+    }
+    else if (m < n){
+        memo[m][n] = 0;
+    }
+    else if (memo[m][n] != -1){
+        return memo[m][n];
+    }
+    else if (m == 0 || n == 0){
+        memo[m][n] = 1;
+    }
+    else {
+        memo[m][n] = numOfPathsToMemo(m - 1, n, memo) + numOfPathsToMemo(m, n - 1, memo);
+    }
+    return memo[m][n];
+}}
+
+console.log(numOfPathParent(5));

@@ -20,6 +20,7 @@ function duplicateNumber(arr){
         }
     }
     return resultArray;
+    // return Object.keys(dict);
 }
 
 console.log(duplicateNumber([1,2,5,2,4,6,3,4,2,3]));
