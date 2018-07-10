@@ -52,16 +52,26 @@ BST.prototype.lowestCommonAncestor = function(node1, node2){
       return this.root.lowestCommonAncestor(node1, node2);
 }
 
-BSTNode.prototype.lowestCommonAncestor = function(node1, node2){
-      if (node1.val > this.val && node2.val > this.val){
-          return this.right.lowestCommonAncestor(node1, node2);
+BSTNode.prototype.lowestCommonAncestor = function(n1, n2){
+      if (this.val == n1|| this.val == n2){
+        return this;
       }
-      else if (node1.val < this.val && node1.val < this.val){
-          return this.left.lowestCommonAncestor(node1, node2);
+      if (this.left){
+        var left = this.left.lowestCommonAncestor(n1, n2);
       }
-      else{
-          return this;
+      if (this.right){
+        var right = this.right.lowestCommonAncestor(n1, n2);
       }
+      if (left && right){
+        return this;
+      }
+      else if (!left && right){
+        return right;
+      }
+      else if (!right && left){
+        return left;
+      }
+      return null;
 }
 
 // in order traversal
@@ -87,7 +97,5 @@ BSTNode.prototype.inOrder = function(){
 
 bst = new BST();
 bst.add(10).add(30).add(-10).add(8).add(6).add(9);
-var node1 = new BSTNode(6);
-var node2 = new BSTNode(9);
-// console.log(bst.lowestCommonAncestor(node1, node2));
-console.log(bst.inOrder());
+console.log(bst.lowestCommonAncestor(30, 9));
+// console.log(bst.inOrder());
