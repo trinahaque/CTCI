@@ -1,21 +1,15 @@
-function strSubSet(arr, map, count) {
-    if (!map){
-      map = {};
-      count = arr.length;
-    }
-    map[arr] = true;
-    // console.log(map);
+function powerSets(arr){
+  var result = [[]];
+  var newResult;
   
-    for (var i=0; i < arr.length; i++){
-      var left = arr[0, i];
-      var right = arr[i+1, arr.length - 1];
-      // console.log(map);
-      map = strSubSet(left, map, count) + strSubSet(right, map, count);
+  for (var i = 0; i < arr.length; i++){
+    newResult = [];
+    for (var j = 0; j < result.length; j++){
+      newResult.push(result[j] + arr[i]);
     }
-    if (arr.length == count){
-      // if statement is only hit when the for loops are done
-      return map;
-    }
+    result = result + [newResult];
   }
-  
-  console.log(strSubSet([1,2,3]));
+  return result;
+}
+
+console.log(powerSets(1,2,3));

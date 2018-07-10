@@ -6,7 +6,7 @@ function decimalToBinary(num){
     var result = "";
     while (num > 0){
         arr[i] = num % 2;
-        // console.log(arr[i]);
+        console.log(i, arr[i]);
         i++;
         num = Math.floor(num / 2);
     }
@@ -17,4 +17,4 @@ function decimalToBinary(num){
 }
 
 
-console.log(decimalToBinary(11));
+console.log(decimalToBinary(2));
