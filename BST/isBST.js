@@ -1,10 +1,10 @@
-BST.prototype.isBalanced = function(){
+BST.prototype.isBST = function(){
     if (!this.root){
         return false;
     }
-    return this.root.isBalanced(Infinity, Infinity);
+    return this.root.isBST(Infinity, Infinity);
 }
-BSTNode.prototype.isBalanced = function(min, max){
+BSTNode.prototype.isBST = function(min, max){
     if (this == null){
         return true;
     }
@@ -12,7 +12,7 @@ BSTNode.prototype.isBalanced = function(min, max){
         return false;
     }
     else{
-        return this.left.isBalanced(min, this.val) && this.right.isBalanced(this.val, max);
+        return this.left.isBST(min, this.val) && this.right.isBST(this.val, max);
     }
 
 }
@@ -64,4 +64,4 @@ BSTNode.prototype.add = function(val){
 
 bst = new BST();
 bst.add(30).add(20).add(40).add(10).add(25).add(35).add(50);
-console.log(bst.isBalanced());
+console.log(bst.isBST());
