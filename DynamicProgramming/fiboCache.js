@@ -11,7 +11,7 @@ function fibonacci(n){
     return memo[n];
 }
 
-console.log(fibonacci(8));
+// console.log(fibonacci(8));
 
 var fibonacci = (function(n){
     var memo = [];
@@ -29,4 +29,19 @@ var fibonacci = (function(n){
     };
 }());
 
-console.log(fibonacci(8));
+// console.log(fibonacci(8));
+
+function fibonacciNormal(n){
+    if (n == 0 || n == 1){
+        return n;
+    }
+    return fibonacciNormal(n-1) + fibonacciNormal(n - 2);
+}
+
+console.log(fibonacciNormal(0));
+console.log(fibonacciNormal(1));
+console.log(fibonacciNormal(2));
+console.log(fibonacciNormal(3));
+console.log(fibonacciNormal(4));
+console.log(fibonacciNormal(5));
+console.log(fibonacciNormal(6));
