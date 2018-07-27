@@ -22,4 +22,5 @@ DLL.prototype.insert = function(val){
     }
     current.next = newNode;
     newNode.prev = current;
+    this.tail = newNode;
 }
