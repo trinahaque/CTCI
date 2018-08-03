@@ -5,6 +5,8 @@
 // assume the string has only uppercase and lowercase letters (a-z).
 // O(n) solution
 
+// actually don't want Hash Map here since it's not count of a single character, but the consequence of it
+
 function stringCompression(str){
 
     if (str.length < 1){
@@ -39,3 +41,4 @@ function stringCompression(str){
 }
 
 console.log(stringCompression("aabcccaaa"));
+// a2b1c3a3
