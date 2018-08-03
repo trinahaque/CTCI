@@ -11,7 +11,7 @@ function fibonacci(n){
     return memo[n];
 }
 
-console.log(fibonacci(8));
+// console.log(fibonacci(8));
 
 var fibonacci = (function(n){
     var memo = [];
@@ -66,4 +66,30 @@ fib.prototype.fibonacci = function(n){
     return this.memo[n];
 }
 
-console.log(fib(6));
+// console.log(fib(6));
+
+
+function fib2(n){
+    var arr = [];
+    function fib(n){
+        if (arr[n]){
+            return arr[n];
+        }
+        if (n < 2){
+            arr[n] = n;
+        }
+        else{
+            arr[n] = fib(n-1) + fib(n-2);
+        }
+        return arr[n];
+    }
+    return fib(n);
+}
+
+console.log(fib2(0));
+console.log(fib2(1));
+console.log(fib2(2));
+console.log(fib2(3));
+console.log(fib2(4));
+console.log(fib2(5));
+console.log(fib2(6));
