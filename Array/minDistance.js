@@ -7,10 +7,19 @@ var arr1 = [1, 2];
 var x1 = 1; var y1 = 2;
 // distance is 1
 
-var arr = [3, 4, 5];
-var x = 3; var y = 5;
+var arr2 = [3, 4, 5];
+var x2 = 3; var y2 = 5;
 // distance is 2
 
+var arr3 = [3,5,4,2,6,5,6,6,5,4,8,3];
+var x3 = 3; var y3 = 4;
+// distance is 4
+
+var arr4 = [2,5,3,5,4,4,2,3];
+var x4 = 3; var y4 = 4;
+// distance is 1
+
+// this solution doesn't work for complicated number
 function minimumDistance(arr, val1, val2){
     var distance = 0;
     var found = false;
@@ -30,4 +39,24 @@ function minimumDistance(arr, val1, val2){
     return distance;
 }
 console.log(minimumDistance(arr1, x1, y1));
-console.log(minimumDistance(arr, x, y));
+console.log(minimumDistance(arr2, x2, y2));
+
+
+// On^2 solution. But it should work in all cases
+function minimumDistance2(arr, val1, val2){
+    var distance = Infinity;
+    for (var i = 0; i < arr.length; i++){
+        for (var j = i + 1; j < arr.length; j++){
+            if ((arr[i] == val1 && arr[j] == val2) || (arr[i] == val2 && arr[j] == val1) && (distance > Math.abs(i - j))){
+                distance = Math.abs(i - j);
+            }
+        }
+    }
+    return distance;
+}
+
+
+console.log(minimumDistance2(arr1, x1, y1));
+console.log(minimumDistance2(arr2, x2, y2));
+console.log(minimumDistance2(arr3, x3, y3));
+console.log(minimumDistance2(arr4, x4, y4));
