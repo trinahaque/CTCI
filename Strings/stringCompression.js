@@ -15,11 +15,15 @@ function stringCompression(str){
     var result = "";
 
     for (var i = 0; i <str.length; i++){
-        if (str[i] !== result[result.length -1]){
+        // if we entered a different character
+        if (str[i] !== result[result.length - 1]){
             if (val !== 0){
+                // enter the value of the previous character to the result
                 result += val;
             }
+            // add the new character to the result
             result += str[i];
+            // start the val for new character to 1
             val = 1;
         }
         else{
@@ -34,4 +38,4 @@ function stringCompression(str){
     return result;
 }
 
-console.log(stringCompression("aa"));
+console.log(stringCompression("aabcccaaa"));
