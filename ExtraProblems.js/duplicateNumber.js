@@ -19,8 +19,10 @@ function duplicateNumber(arr){
             resultArray.push(parseInt(key));
         }
     }
+
+    // modern JavaScript has option to iterate over the value
+    // return Object.values(dict);
     return resultArray;
-    // return Object.keys(dict);
 }
 
 console.log(duplicateNumber([1,2,5,2,4,6,3,4,2,3]));
