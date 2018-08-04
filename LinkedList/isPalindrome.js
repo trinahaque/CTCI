@@ -28,6 +28,13 @@ SLL.prototype.add = function(val){
 
 
 // given a linked list, determine if it's palindrome
+// On space. n/2 for stack and n/2 for queue
+// 2 1/2 n time
+// n to count
+// n/2 to make stack
+// n/2 to make queue
+// n/2 to compare values
+
 SLL.prototype.isPalindrome = function(){
     if (!this.head){
         return null;
@@ -39,7 +46,10 @@ SLL.prototype.isPalindrome = function(){
         count++;
         current = current.next;
     }
-    // need the higher value from the mid
+    if (count == 1){
+        return true;
+    }
+    // need the higher value from the mid if the length is odd
     var mid = Math.ceil(count / 2);
     // console.log("mid ", mid);
     var stack = [];
@@ -67,7 +77,7 @@ SLL.prototype.isPalindrome = function(){
     }
     // console.log("q ", queue);
     while (stack.length != 0){
-        if (stack.pop() != queue.dequeue().val){
+        if (stack.pop() != queue.dequeue()){
             return false;
         }
     }
@@ -110,12 +120,12 @@ Queue.prototype.dequeue = function(){
     if (this.length == 0){
       this.tail = null;
     }
-    return tmp;
+    return tmp.val;
 }
 
 
 
 
 var sll = new SLL();
-sll.add("t").add("a").add("c").add("o").add("c").add("a").add("m");
+sll.add("t").add("a").add("c").add("o").add("c").add("a").add("t");
 console.log(sll.isPalindrome());
