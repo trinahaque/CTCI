@@ -69,7 +69,8 @@ SLNode.prototype.print = function(){
 
 
 var sll = new SLL();
-sll.add(1).add(2).add(3).add(4).add(5);
+sll.add(1);
+// sll.add(1).add(2).add(3).add(4).add(5);
 sll.print();
 console.log("Reverse");
 sll.reversePrint();
